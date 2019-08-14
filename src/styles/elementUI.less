@@ -1,0 +1,65 @@
+// 修改element-ui 组件的样式
+
+// 下拉框的选择列表
+// 暗黑系列
+.dark-select{
+  .el-select-dropdown__item:hover{
+    background: #a7b6d6;
+  }
+  .el-select-dropdown__item.selected{
+    color: #fff;
+    background: #374562;
+  }
+}
+// 平安橙
+.origin-select{
+  .el-select-dropdown__item:hover{
+    background: rgba(255,102,0,1);
+  }
+  .el-select-dropdown__item.selected{
+    color: #fff;
+    background: rgba(255,102,0,1);
+  }
+}
+.el-select-dropdown__item{
+  color: #000;
+}
+
+.el-date-picker.has-sidebar{
+  width: 400px;
+  .el-picker-panel__sidebar{
+    width: 75px;
+  }
+  .el-picker-panel__icon-btn {
+    font-size: 18px;
+  }
+  .el-picker-panel__body{
+    margin-left: 75px;
+    .el-date-picker__header {
+      margin: 5px 12px;
+      margin-bottom: 0;
+    }
+    .el-picker-panel__content {
+      margin: 5px 15px;
+      margin-bottom: 10px;
+    }
+  }
+  .el-date-table,.el-month-table, .el-year-table {
+    font-size: 13px;
+    //color: #000;
+  }
+  .el-date-table  {
+    td {
+      width: 22px;
+      height: 20px;
+      div{
+        height: 20px;
+      }
+    }
+  }
+  .el-year-table,.el-month-table{
+    td {
+      padding: 17px 3px;
+    }
+  }
+}

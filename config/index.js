@@ -6,11 +6,20 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/api': {
+        target: 'http://192.168.8.114:8080',
+        // secure: true,  // 如果是https接口，需要配置这个参数
+        changeOrigin: true,
+        pathRewrite: {
+          //这里的配置是正则表达式，以/api开头的将会被用用‘/api’替换掉，假如后台文档的接口是 /api/list/xxx
+          //前端api接口写：axios.get('/api/list/xxx') ， 被处理之后实际访问的是：http://news.baidu.com/api/list/xxx
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -20,7 +29,14 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    
+    // Use Eslint Loader?
+    // If true, your code will be linted during bundling and
+    // linting errors and warnings will be shown in the console.
+    useEslint: true,
+    // If true, eslint errors and warnings will also be shown in the error overlay
+    // in the browser.
+    showEslintErrorsInOverlay: false,
+
     /**
      * Source Maps
      */
@@ -43,13 +59,13 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
 
     /**
      * Source Maps
      */
 
-    productionSourceMap: true,
+    productionSourceMap: false,
     // https://webpack.js.org/configuration/devtool/#production
     devtool: '#source-map',
 

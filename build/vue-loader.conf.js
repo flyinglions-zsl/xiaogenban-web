@@ -13,6 +13,11 @@ module.exports = {
   }),
   cssSourceMap: sourceMapEnabled,
   cacheBusting: config.dev.cacheBusting,
+  postcss: [
+    require('autoprefixer')({
+      browsers: ['last 2 versions']
+    })
+  ],
   transformToRequire: {
     video: ['src', 'poster'],
     source: 'src',

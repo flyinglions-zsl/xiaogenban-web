@@ -7,13 +7,10 @@ const vueLoaderConfig = require('./vue-loader.conf')
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
-
-
-
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: './src/main.js'
+    app: ['babel-polyfill','./src/main.js']
   },
   output: {
     path: config.build.assetsRoot,
@@ -38,7 +35,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        loader: 'babel-loader?cacheDirectory',
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
       {

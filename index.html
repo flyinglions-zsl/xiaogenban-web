@@ -1,12 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
   <head>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>xiaogenban-web</title>
+    <!--配合 mate禁用 缓存标签，实现禁用浏览器缓存（实现原理，自动刷新）     -->
+    <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <meta HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate">
+    <meta HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
+    <meta HTTP-EQUIV="expires" CONTENT="0">
+
+    <title></title>
+    <!--[if lt IE 10]>
+    <style type="text/css">
+      #lt_ie10_warning {
+        position: absolute;
+        top: 50%;
+        display: table-cell;
+        width: 97%;
+        text-align: center;
+        font-size: 13px;
+        color: #333;
+      }
+
+      #app {
+        display: none;
+      }
+    </style>
+    <![endif]-->
   </head>
   <body>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
+  <div id="app" ></div>
+  <!-- built files will be auto injected -->
+
+  <!--[if lt IE 10]>
+      <div id="lt_ie10_warning">浏览器不适配，建议使用谷歌浏览器、360极速浏览器、360浏览器、QQ浏览器、IE（10.0及以上）！</div>
+  <![endif]-->
   </body>
+  <script>
+    if(!window.name){
+      var str = Math.random().toString(36).substr(2);//随机字符串
+      window.location.href += '?S='+ str;//兼容微信浏览器刷新
+      window.name = 'isreload';
+    }
+  </script>
 </html>
