@@ -7,11 +7,11 @@ import page404 from '@/views/page404';
 import test from '@/components/test';
 
 const titles = {
-  marketingAnalysis: 'vue'
+  system: 'vue'
 };
 // 按需加载
-const marketingAnalysis = () => import('@/views/marketing/page1');
-const authorityManagement = () => import('@/views/management/authorityManagement');
+const marketingAnalysis = () => import('@/views/system/page1');
+// const authorityManagement = () => import('@/views/system/authorityManagement');
 const homepage = () => import('@/views/layout/homepage');
 // 用户管理
 const userManagement = () => import('@/views/management/userManagement');

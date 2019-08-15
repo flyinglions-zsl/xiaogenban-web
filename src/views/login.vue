@@ -16,8 +16,8 @@
         <div class="loginForm" style="margin-top: 2em;">
             <img src="../assets/user.png" class="imgA">
             <img src="../assets/psd.png" class="imgB">
-            <input type="text" required placeholder="请输入用户名" class="inputL" />
-            <input type="password" required placeholder="请输入密码" class="inputL" />
+            <input type="text" required placeholder="请输入用户名" class="inputL" ref="userName"/>
+            <input type="password" required placeholder="请输入密码" class="inputL" ref="password"/>
             <p><input type="checkbox" class='chec' /><span style="padding-left: 5px;">记住用户名</span></p>
             <p></p>
             <button type="button" v-on:click="login" class="btn inputL" style="padding:0;">登&nbsp;&nbsp;录</button>
@@ -30,21 +30,29 @@
 
 <script>
 export default {
-
+  data(){
+      return {
+          userName: '',
+          password: ''
+      }
+  },
   mounted () {
       //this.$router.push({path: '/main/marketingAnalysis'});
   },
   methods: {
     login () {
-      console.log(1);
       let url = 'system/login.action';
       this.$router.push({path: '/main'});
       let params = {
-        username: 'liqingqiang',
-        password: '123456'
+        username: this.$refs.userName.value,
+        password: this.$refs.password.value
       };
       this.$axios(url, params, 'POST').then(res => {
-        console.log(res);
+        if(res == 200){
+           this.$router.push({path: '/main/system'});
+        }else{
+            alert("账号或密码错误！");
+        }
       });
     }
   }
@@ -222,7 +230,7 @@ export default {
 
     .login .inputL {
         margin-top: 1.25rem;
-        cursor: pointer;
+        /* cursor: pointer; */
         /*去掉chrome浏览器输入框内的蓝色边框*/
         outline: none;
         width: 100%;
