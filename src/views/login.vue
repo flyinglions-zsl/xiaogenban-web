@@ -38,7 +38,7 @@ export default {
     login () {
       console.log(1);
       let url = 'system/login.action';
-      this.$router.push({path: '/main/marketingAnalysis'});
+      this.$router.push({path: '/main'});
       let params = {
         username: 'liqingqiang',
         password: '123456'
@@ -268,6 +268,6 @@ export default {
     a:link,
     a:active {
         text-decoration: none;
-        color: #A2CEFF;
+        color: #409eff;
     }
 </style>
