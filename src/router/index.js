@@ -7,10 +7,10 @@ import page404 from '@/views/page404';
 import test from '@/components/test';
 
 const titles = {
-  marketingAnalysis: 'vue'
+  system: 'vue'
 };
 // 按需加载
-const marketingAnalysis = () => import('@/views/marketing/page1');
+const system = () => import('@/views/system/page1');
 
 Vue.use(Router);
 
@@ -40,13 +40,13 @@ const router = new Router({
     },
     {
       path: '/main',
-      component: main,
-      redirect: '/main/marketingAnalysis',
+      component: system,
+      redirect: '/main/system', //可选择 重定向到某个子路由
       children: [
         {
-          path: '/main/marketingAnalysis',
+          path: '/main/system',
           name: 'vue',
-          component: marketingAnalysis
+          component: system
         }
       ]
     }

@@ -15,6 +15,7 @@ Vue.config.productionTip = false;
 Object.defineProperty(Vue.prototype, '$echarts', { value: echarts });
 Object.defineProperty(Vue.prototype, '$axios', { value: fetch });
 
+
 Vue.use(Element);
 
 /* eslint-disable no-new */
