@@ -4,11 +4,11 @@
  * routerMode: 路由模式
  *
  */
-let baseUrl;
+let productionUrl;
 if (process.env.NODE_ENV === 'production') {
-  baseUrl = '';
+  productionUrl = '';
 } else {
   // 本地
-  baseUrl = 'http://127.0.0.1:9090';
+  productionUrl = 'http://127.0.0.1:9090';
 }
-export default baseUrl;
+export default productionUrl;
