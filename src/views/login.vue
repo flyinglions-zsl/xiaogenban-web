@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     login () {
-      let url = 'system/login.action';
+      let url = '/login';
       let params = {
         username: this.$refs.userName.value,
         password: this.$refs.password.value

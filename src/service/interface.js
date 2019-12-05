@@ -5,12 +5,13 @@
  */
 import axios from 'axios';
 import qs from 'qs';
-import productionUrl from './env';
+// import productionUrl from './env';
 // 线上版本用 baseUrl
-let baseUrl = process.env.NODE_ENV === 'production' ? productionUrl : '';
+// let baseUrl = process.env.NODE_ENV === 'production' ? productionUrl : '';
+let baseUrl = 'http://127.0.0.1:9090';
 
 const instance = axios.create({
-  baseURL: baseUrl + '/api',
+  baseURL: baseUrl + '/xiaogenban',
   withCredentials: true,
   timeout: 10000
 });

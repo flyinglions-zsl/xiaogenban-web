@@ -41,7 +41,7 @@ const router = new Router({
     {
       path: '/main',
       component: system,
-      redirect: '/main/system', //可选择 重定向到某个子路由
+      redirect: '/main/system', // 可选择 重定向到某个子路由
       children: [
         {
           path: '/main/system',
