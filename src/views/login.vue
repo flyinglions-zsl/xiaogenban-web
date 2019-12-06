@@ -16,7 +16,7 @@
         <div class="loginForm" style="margin-top: 2em;">
             <img src="../assets/user.png" class="imgA">
             <img src="../assets/psd.png" class="imgB">
-            <input type="text" required placeholder="请输入用户名" class="inputL" ref="userName"/>
+            <input type="text" required placeholder="请输入用户名" class="inputL" ref="username"/>
             <input type="password" required placeholder="请输入密码" class="inputL" ref="password"/>
             <p><input type="checkbox" class='chec' /><span style="padding-left: 5px;">记住用户名</span></p>
             <p></p>
@@ -42,12 +42,14 @@ export default {
   methods: {
     login () {
       let url = '/login';
-      let params = {
-        username: this.$refs.userName.value,
+      let params = {  //this.$qs
+        username: this.$refs.username.value,
         password: this.$refs.password.value
       };
-      this.$axios(url, params, 'POST').then(res => {
-        if(res == 200){
+      this.$axios.post(url, params, 'POST').then(res => {
+          console.log(params.username);
+          console.log(params.password);
+        if(res.data.code == 200){
            this.$router.push({path: '/main/system'});
         }else{
             alert("账号或密码错误！");

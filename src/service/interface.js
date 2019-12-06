@@ -145,7 +145,7 @@ instance.interceptors.response.use(
  * @param opts  {} 对象格式。自定义配置项，该参数中的值会覆盖前面的值
  * @returns {Promise<any>}
  */
-function $axios (url = '', data = {}, method = 'GET', opts = {}) {
+function $axios (url = '', data = {}, method = 'POST', opts = {}) {
   return new Promise((resolve, reject) => {
     let type = method.toLocaleLowerCase();
     // `data` 作为请求主体发送的数据, 仅适用于请求方法“PUT”，“POST”和“PATCH”
@@ -153,7 +153,7 @@ function $axios (url = '', data = {}, method = 'GET', opts = {}) {
     let options = {
       url: `${url}?t=${new Date().getTime()}`, // 添加时间，禁用缓存
       method: method,
-      params: !isDataProp ? data : {},
+      // params: isDataProp ? data : {},
       data: isDataProp ? data : {},
       responseType: opts.dataType || 'json',
       headers: opts.headers ||
