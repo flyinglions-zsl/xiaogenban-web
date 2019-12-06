@@ -32,7 +32,7 @@
 export default {
   data(){
       return {
-          userName: '',
+          username: '',
           password: ''
       }
   },
@@ -43,12 +43,12 @@ export default {
     login () {
       let url = '/login';
       let params = {
-        user: this.$refs.userName.value,
-        pass: this.$refs.password.value
+        username: this.$refs.username.value,
+        password: this.$refs.password.value
       };
       this.$axios(url, params).then(res => {
         console.log(res)
-        if(res.msg="登陆成功"){
+        if(res.code="200"){
             this.$message({
               message: res.msg,
               type: 'success'
