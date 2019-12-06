@@ -42,17 +42,23 @@ export default {
   methods: {
     login () {
       let url = '/login';
-      let params = {  //this.$qs
-        username: this.$refs.username.value,
-        password: this.$refs.password.value
+      let params = {
+        user: this.$refs.userName.value,
+        pass: this.$refs.password.value
       };
-      this.$axios.post(url, params, 'POST').then(res => {
-          console.log(params.username);
-          console.log(params.password);
-        if(res.data.code == 200){
+      this.$axios(url, params).then(res => {
+        console.log(res)
+        if(res.msg="登陆成功"){
+            this.$message({
+              message: res.msg,
+              type: 'success'
+            });
            this.$router.push({path: '/main/system'});
         }else{
-            alert("账号或密码错误！");
+           this.$message({
+            message: res.msg,
+              type: 'error'
+           });
         }
       });
     }

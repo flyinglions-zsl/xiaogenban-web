@@ -9,6 +9,7 @@ if (process.env.NODE_ENV === 'production') {
   productionUrl = '';
 } else {
   // 本地
-  productionUrl = 'http://127.0.0.1:9090';
+  // productionUrl = 'http://127.0.0.1:9090';
+  productionUrl = 'http://127.0.0.1:3000';
 }
 export default productionUrl;
