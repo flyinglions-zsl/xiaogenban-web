@@ -17,15 +17,16 @@ Vue.use(Router);
 const router = new Router({
   routes: [
     {
-      path: '*',
-      name: 'page404',
-      component: page404
-    }, {
       path: '/',
+      name: '',
+      redirect: '/login',
+    },
+    {
+      path: '/login',
       name: 'login',
       component: login,
       meta: {
-        title: '登录'
+        title: '登录页'
       }
     },
     {
@@ -56,18 +57,18 @@ const router = new Router({
 
 router.afterEach((to, from) => {
   /* 路由发生变化修改页面 title */
-  let fullRoute = to.path;
-  if (fullRoute === '/') {
-    document.title = '登录页';
-    return;
-  }
-  let routerArr = fullRoute.split('/');
-  if (routerArr.length < 3) return;
-  let lastRoute = routerArr[2].replace(/\d+/g, '');
-  let titleText = titles[lastRoute];
-  if (titleText) {
-    document.title = titleText;
-  }
+  // let fullRoute = to.path;
+  // if (fullRoute === '/') {
+  //   document.title = '登录页';
+  //   return;
+  // }
+  // let routerArr = fullRoute.split('/');
+  // if (routerArr.length < 3) return;
+  // let lastRoute = routerArr[2].replace(/\d+/g, '');
+  // let titleText = titles[lastRoute];
+  // if (titleText) {
+  //   document.title = titleText;
+  // }
   // next();
 });
 
