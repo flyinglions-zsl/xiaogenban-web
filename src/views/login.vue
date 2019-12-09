@@ -46,9 +46,9 @@ export default {
         username: this.$refs.username.value,
         password: this.$refs.password.value
       };
-      this.$axios(url, params).then(res => {
-        console.log(res)
-        if(res.code="200"){
+      this.$axios(url, params, 'POST').then(res => {
+        if(res.code = "200"){
+            window.localStorage.setItem('token', res.data.TokenMap.token);
             this.$message({
               message: res.msg,
               type: 'success'
