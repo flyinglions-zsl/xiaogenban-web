@@ -9,7 +9,7 @@ import productionUrl from './env';
 // 线上版本用 baseUrl
 let baseUrl = process.env.NODE_ENV === 'production' ? productionUrl : '';
 // let baseUrl = 'http://127.0.0.1:9090';
-
+console.log(baseUrl);
 const instance = axios.create({
   baseURL: baseUrl + '/xiaogenban',
   withCredentials: true,
@@ -145,7 +145,7 @@ instance.interceptors.response.use(
  * @param opts  {} 对象格式。自定义配置项，该参数中的值会覆盖前面的值
  * @returns {Promise<any>}
  */
-function $axios (url = '', data = {}, method = 'POST', opts = {}) {
+function $axios (url = '', data = {}, method = '', opts = {}) {
   return new Promise((resolve, reject) => {
     let type = method.toLocaleLowerCase();
     // `data` 作为请求主体发送的数据, 仅适用于请求方法“PUT”，“POST”和“PATCH”
@@ -153,14 +153,15 @@ function $axios (url = '', data = {}, method = 'POST', opts = {}) {
     let options = {
       url: `${url}?t=${new Date().getTime()}`, // 添加时间，禁用缓存
       method: method,
-      // params: isDataProp ? data : {},
+      params: isDataProp ? data : {},
       data: isDataProp ? data : {},
       responseType: opts.dataType || 'json',
       headers: opts.headers ||
         {
           // 设置默认请求头
           'Accept': 'application/json',
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'access_token': window.localStorage['token']
           // 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
         }
     };
